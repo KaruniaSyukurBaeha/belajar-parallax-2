@@ -1,6 +1,9 @@
+'use client'
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,11 +15,16 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      
+      <ParallaxProvider>
+        <body className={inter.className}>{children}</body>    
+      </ParallaxProvider>
     </html>
   )
 }
+
+
